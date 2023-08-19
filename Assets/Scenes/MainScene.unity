@@ -341,6 +341,7 @@ GameObject:
   m_Component:
   - component: {fileID: 83602763}
   - component: {fileID: 83602764}
+  - component: {fileID: 83602765}
   m_Layer: 5
   m_Name: GaugePanel
   m_TagString: Untagged
@@ -380,6 +381,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83602762}
   m_CullTransparentMesh: 1
+--- !u!114 &83602765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83602762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99ceea73298847846a2af86538133e19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elementDataList:
+  - barImg: {fileID: 0}
+    value: 0
+    reduce: 0
+  - barImg: {fileID: 0}
+    value: 0
+    reduce: 0
+  - barImg: {fileID: 0}
+    value: 0
+    reduce: 0
+  - barImg: {fileID: 0}
+    value: 0
+    reduce: 0
+  delaySec: 0
 --- !u!1 &92529101
 GameObject:
   m_ObjectHideFlags: 0
@@ -3531,7 +3558,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1082053592, guid: 93f9130287f8d4c4799dad1be07bc31d, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5656,10 +5683,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 381635919, guid: 93f9130287f8d4c4799dad1be07bc31d, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -7891,10 +7918,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1938941067, guid: 93f9130287f8d4c4799dad1be07bc31d, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -8542,10 +8569,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -1817694223, guid: 93f9130287f8d4c4799dad1be07bc31d, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 1
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
