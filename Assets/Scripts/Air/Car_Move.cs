@@ -60,10 +60,7 @@ public class Car_Move : MonoBehaviour
             {
                 //gage.Value[3] += 10;
 
-                Gas.transform.localPosition = new Vector3(0, 0.7f, 0);
-                Gas.transform.localScale = new Vector3(0.25f, 0.25f, 0);
-
-                Broke = 0;
+                Destroy(gameObject);
             }
 
             GetComponent<BoxCollider2D>().enabled = false;
