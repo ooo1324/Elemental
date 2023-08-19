@@ -50,3 +50,6 @@ TagManager:
   - name: Fish
     uniqueID: 1599023907
     locked: 0
+  - name: MaskLayer
+    uniqueID: 2609116415
+    locked: 0
