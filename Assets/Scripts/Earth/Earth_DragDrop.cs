@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DragDrop : MonoBehaviour
+public class Earth_DragDrop : MonoBehaviour
 {
     private bool isDrag = false;
     private SpriteRenderer renderer;
-
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -16,9 +15,10 @@ public class DragDrop : MonoBehaviour
     {
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.3f);
     }
+
     private void OnMouseDrag()
     {
-        if (!isDrag) 
+        if (!isDrag)
             isDrag = true;
 
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
@@ -30,8 +30,8 @@ public class DragDrop : MonoBehaviour
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
         if (isDrag)
         {
-            FireManager.instance.CheckBomb();
+      
             Destroy(gameObject);
-        }      
+        }
     }
 }
