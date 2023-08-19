@@ -33,7 +33,7 @@ public class Car_Spawn : MonoBehaviour
 
             List<GameObject>Car = new List<GameObject>();
 
-            for (int i = 0; i < Car_Num; i++)
+            for (int i = 0; i <= Car_Num; i++)
             {
                 Car.Add(Instantiate(Prefab_Car, parentObj));
                 Car[i].transform.localPosition = Spawn_direction[i];
