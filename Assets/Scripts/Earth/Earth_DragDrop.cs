@@ -30,7 +30,7 @@ public class Earth_DragDrop : MonoBehaviour
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
         if (isDrag)
         {
-      
+            
             Destroy(gameObject);
         }
     }

@@ -6,6 +6,7 @@ public class BombSpawner : MonoBehaviour
 {
     public List<GameObject> bombList;
 
+
     private void Start()
     {
         
