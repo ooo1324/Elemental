@@ -32,7 +32,7 @@ public class Car_Move : MonoBehaviour
 
     void Update()
     {
-        if (transform.position.y > -6)
+        if (transform.position.y > -6.45f)
             transform.Translate(new Vector3(0, -Speed * Time.deltaTime, 0));
         else
         {

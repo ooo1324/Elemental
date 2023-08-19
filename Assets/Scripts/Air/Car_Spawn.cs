@@ -7,6 +7,8 @@ public class Car_Spawn : MonoBehaviour
     List<int> CarList = new List<int>();
 
     public Sprite[] SP;
+    public Vector2[] Spawn_direction;
+
     public GameObject Prefab_Car;
     public float Spawn_Time;
     public bool Break;
@@ -29,7 +31,7 @@ public class Car_Spawn : MonoBehaviour
             {
                 Car.Add(Instantiate(Prefab_Car, Vector2.zero, Quaternion.identity));
                 Car[i].transform.parent = transform;
-                Car[i].transform.localPosition = new Vector3(-4.4f + 2.84f * CarList[i], 6, 0);
+                Car[i].transform.localPosition = Spawn_direction[i];
                 Car[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = SP[Random.Range(0, SP.Length)];
                 Car[i].GetComponent<Car_Move>().Speed = Random.Range(3, 9);
 

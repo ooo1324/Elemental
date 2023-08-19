@@ -29,7 +29,14 @@ public class Gage : MonoBehaviour
                 Bars[i].fillAmount = Value[i]/100;
 
                 if (Bars[i].fillAmount <= 0)
+                {
+                    Value[i] = 0;
                     Debug.Log("Game Over");
+                }
+                else if (Bars[i].fillAmount >= 1)
+                {
+                    Value[i] = 100;
+                }
             }
 
             yield return new WaitForSeconds(0.1f);
