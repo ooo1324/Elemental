@@ -33,5 +33,7 @@ public class Timer_Slider : MonoBehaviour
 
             yield return new WaitForFixedUpdate();
         }
+
+        GameManager.instance.GameClear();
     }
 }

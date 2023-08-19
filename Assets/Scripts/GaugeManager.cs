@@ -35,14 +35,12 @@ public class GaugeManager : MonoBehaviour
 
                 curdata.value -= curdata.reduce * 0.1f;
 
-                Debug.Log($"{curdata.value} / {curdata.barImg.fillAmount}");
-
                 curdata.barImg.fillAmount = curdata.value / 100;
 
                 if (curdata.barImg.fillAmount <= 0)
                 {
                     curdata.value = 0;
-                    //  Debug.Log("Game Over");
+                    GameManager.instance.GameOver();
                 }
                 else if (curdata.barImg.fillAmount >= 1)
                 {

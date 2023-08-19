@@ -49,4 +49,6 @@ public class Management : ScriptableObject
 
     public bool isStartGame;
 
+    public bool Stop;
+
 }

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,7 +10,16 @@ public class GameManager : MonoBehaviour
 
     public GaugeManager gaugeManager;
 
-    public GameObject gameOverObj;
+    [Header("GameOver/Clear")]
+    public GameObject gamePanelObj;
+    public TextMeshProUGUI scoreText;
+
+    public GameObject gameOverText;
+    public GameObject clearText;
+
+    [Header("MainCheck")]
+    public GameObject CheckPanelObj;
+
 
     [Header("Score")]
     public float plusScore;
@@ -21,7 +32,6 @@ public class GameManager : MonoBehaviour
     public float decreaseValue;
 
     public float increaseValue;
-
 
 
     private void Awake()
@@ -44,13 +54,34 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameOverObj.SetActive(true);
+        gameOverText.SetActive(true);
+        clearText.SetActive(false);
+        gamePanelObj.SetActive(true);
+        scoreText.text = totalScore.ToString();
         Management.Instance.isStartGame = false;
     }
 
     public void GameClear()
     {
+        gameOverText.SetActive(false);
+        clearText.SetActive(true);
+        gamePanelObj.SetActive(true);
+        scoreText.text = totalScore.ToString();
+    }
 
+    public void CheckMainPanel()
+    {
+        CheckPanelObj.SetActive(true);
+    }
+
+    public void ExitMainPanel()
+    {
+        CheckPanelObj.SetActive(false);
+    }
+
+    public void LoadMain()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void PlusScore(GamePanelManager.EElementalType type)

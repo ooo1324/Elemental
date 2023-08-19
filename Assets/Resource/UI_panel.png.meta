@@ -209,7 +209,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_panel_5
+      name: UI_panel_homebt_normal
       rect:
         serializedVersion: 2
         x: 1
@@ -230,13 +230,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_panel_6
+      name: UI_panel_homebt_press
       rect:
         serializedVersion: 2
-        x: 43
-        y: 468
-        width: 16
-        height: 17
+        x: 37
+        y: 450
+        width: 34
+        height: 41
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,13 +251,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI_panel_7
+      name: UI_panel_pause_nomal
       rect:
         serializedVersion: 2
-        x: 65
-        y: 468
-        width: 14
-        height: 17
+        x: 73
+        y: 450
+        width: 34
+        height: 41
       alignment: 9
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -649,6 +649,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_panel_pause_press
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 450
+        width: 34
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad09579c943df84fa501ffa7e984b55
+      internalID: -2143694660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -662,7 +683,7 @@ TextureImporter:
     nameFileIdTable:
       UI_panel_26: -1798179380
       UI_panel_9: 381635919
-      UI_panel_7: -1962790119
+      UI_panel_homebt_press: -2017833684
       UI_panel_15: 1494929773
       UI_panel_38: 1010472537
       UI_panel_11: 1938941067
@@ -670,7 +691,6 @@ TextureImporter:
       UI_panel_air: 1106575487
       UI_panel_17: -852853856
       UI_panel_16: 1009547306
-      UI_panel_5: 28121896
       UI_panel_1: -256537652
       UI_panel_21: 1389715455
       UI_panel_12: -1817694223
@@ -685,8 +705,10 @@ TextureImporter:
       UI_panel_13: -632228649
       UI_panel_14: -1516352049
       UI_panel_28: 308907513
+      UI_panel_pause_nomal: -1962790119
       UI_panel_fire: 484324162
       UI_panel_30: 99511460
+      UI_panel_homebt_normal: 28121896
       UI_panel_earth: -269945109
       UI_panel_2: -206376008
       UI_panel_25: -1351346685
@@ -696,7 +718,7 @@ TextureImporter:
       UI_panel_10: 1082053592
       UI_panel_37: 1343695279
       UI_panel_4: -730536647
-      UI_panel_6: -2017833684
+      UI_panel_pause_press: -2143694660
       UI_panel_8: 229173014
       UI_panel_water: 496701767
   spritePackingTag: 
