@@ -31,7 +31,7 @@ public class Gage : MonoBehaviour
                 if (Bars[i].fillAmount <= 0)
                 {
                     Value[i] = 0;
-                    Debug.Log("Game Over");
+                  //  Debug.Log("Game Over");
                 }
                 else if (Bars[i].fillAmount >= 1)
                 {

@@ -8,13 +8,11 @@ public class Car_Move : MonoBehaviour
     public int Broke;
 
     public SpriteRenderer Sp;
-    public Animator AN;
     public GameObject Gas;
     public Gage gage;
 
     void Start()
     {
-        AN = GetComponent<Animator>();
         gage = GameObject.FindObjectOfType<Gage>();
         Gas.SetActive(true);
 

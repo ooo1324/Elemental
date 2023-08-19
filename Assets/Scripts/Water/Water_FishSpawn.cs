@@ -8,6 +8,7 @@ public class Water_FishSpawn : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    public Transform parentObj;
     public List<GameObject> targetPrefabs;
 
     public float spawnRate = 1.0f;
@@ -62,11 +63,14 @@ public class Water_FishSpawn : MonoBehaviour
 
             yield return new WaitForSeconds(spawnRate);
 
-           // Debug.Log(spawnRate);
+            // Debug.Log(spawnRate);
 
 
             //여기에 더는 생성하지않는다는 bool 변수 넣을지도 
-            GameObject obj = Instantiate(targetPrefabs[index], RandomSpawnPosition(), targetPrefabs[index].transform.rotation);
+            GameObject obj = Instantiate(targetPrefabs[index], parentObj);
+            obj.transform.position = RandomSpawnPosition();
+          // GameObject obj = Instantiate(targetPrefabs[index], RandomSpawnPosition(), targetPrefabs[index].transform.rotation);
+
             obj.GetComponent<SpriteRenderer>().sortingOrder = sorting_Value;
             sorting_Value++; // 나중에 한번 조절하는 코드 넣기 
 
