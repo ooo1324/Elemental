@@ -30,11 +30,21 @@ public class GamePanelManager : MonoBehaviour
     public GameObject airGamePanelBt;
     public GameObject earthGamePanelBt;
 
+    public List<PolygonCollider2D> colliderList;
+
     private void Awake()
     {
         instance = this;
     }
 
+    public void ActiveCollider()
+    {
+        for (int i = 0; i < 4; i++)
+            box[i].enabled = true;
+
+        for (int i = 0; i < colliderList.Count; i++)
+            colliderList[i].enabled = true;
+    }
 
     public void ChangePanel(EElementalType type)
     {
@@ -52,6 +62,15 @@ public class GamePanelManager : MonoBehaviour
         waterGamePanelBt.SetActive(true);
         airGamePanelBt.SetActive(true);
         earthGamePanelBt.SetActive(true);
+
+        if (type == EElementalType.none)
+        {
+            for (int i = 0; i < colliderList.Count; i++)
+                colliderList[i].enabled = false;
+            return;
+        } 
+
+       
 
         switch (type)
         {

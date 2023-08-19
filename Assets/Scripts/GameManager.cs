@@ -33,7 +33,6 @@ public class GameManager : MonoBehaviour
 
     public float increaseValue;
 
-
     private void Awake()
     {
         instance = this;
@@ -43,7 +42,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Management.Instance.isStartGame = true;
+
     }
 
     // Update is called once per frame
@@ -54,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
         gameOverText.SetActive(true);
         clearText.SetActive(false);
         gamePanelObj.SetActive(true);
@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
+        GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
         gameOverText.SetActive(false);
         clearText.SetActive(true);
         gamePanelObj.SetActive(true);
@@ -71,11 +72,13 @@ public class GameManager : MonoBehaviour
 
     public void CheckMainPanel()
     {
+        GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
         CheckPanelObj.SetActive(true);
     }
 
     public void ExitMainPanel()
     {
+        GamePanelManager.instance.ActiveCollider();
         CheckPanelObj.SetActive(false);
     }
 
@@ -111,6 +114,20 @@ public class GameManager : MonoBehaviour
         totalScore += Management.Instance.level * plusScore * typeScore;
 
        
+    }
+    public void PauseGame()
+    {
+        if (!Management.Instance.Stop)
+        {
+            Management.Instance.Stop = true;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Management.Instance.Stop = false;
+            Time.timeScale = 1;
+        }
+
     }
 
     public void MinusSocre(GamePanelManager.EElementalType type)
