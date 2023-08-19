@@ -10,20 +10,16 @@ public class Fire : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!Management.Instance.Stop)
+        if (FireManager.instance.currBombType == FireManager.EBombType.water)
         {
-            if (FireManager.instance.currBombType == FireManager.EBombType.water)
-            {
-                FireManager.instance.AddScore(score);
-                spawner.decreaseFireCount();
-                gameObject.SetActive(false);
-            }
-            else if (FireManager.instance.currBombType == FireManager.EBombType.oil)
-            {
-                FireManager.instance.AddScore(-score);
-                //spawner.decreaseFireCount();
-                //gameObject.SetActive(false);
-            }
+            GameManager.instance.PlusScore(GamePanelManager.EElementalType.fire);
+            FireManager.instance.AddScore(score);
+            spawner.decreaseFireCount();
+            gameObject.SetActive(false);
+        }
+        else if (FireManager.instance.currBombType == FireManager.EBombType.oil)
+        {
+            GameManager.instance.MinusSocre(GamePanelManager.EElementalType.fire);
         }
     }
 }

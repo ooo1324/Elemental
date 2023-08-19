@@ -44,11 +44,10 @@ public class FireSpawner : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(0.01f);
-               // Debug.Log($"ranidx : {ranIdx}");
+             
             }
-
-          //  Debug.Log($"fire »ý¼º : {currCount}");
-            yield return new WaitForSeconds(spawnSec / Management.Instance.level);
+      
+            yield return new WaitForSeconds((float)spawnSec / Management.Instance.level);
         }
         // fireSpawn
     

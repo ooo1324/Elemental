@@ -11,6 +11,7 @@ public class Water_MovingFish : MonoBehaviour
 
      Image image ;
 
+    public bool isGood;
   
 
     bool isLeftSpawn ;
@@ -97,14 +98,20 @@ public class Water_MovingFish : MonoBehaviour
 
     private void OnMouseDown() // 마우스 클릭
     {
-        if (!Management.Instance.Stop)
+        Destroy(gameObject);
+        Explode();
+        isMouseDown = true;
+
+        if (isGood)
         {
-            Destroy(gameObject);
-            Explode();
-            isMouseDown = true;
+            GameManager.instance.MinusSocre(GamePanelManager.EElementalType.water);
+        }
+        else
+        {
+            GameManager.instance.PlusScore(GamePanelManager.EElementalType.water);
         }
 
-       // fish_Spawn.UpdateScore(pointValue);
+        //fish_Spawn.UpdateScore(pointValue);
 
     }
 

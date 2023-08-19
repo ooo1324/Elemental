@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 100b7b96598348b49954b31f65c4939b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGood: 1
   pointValue: -50
   alpha_Time: 0.3
   isMouseDown: 0

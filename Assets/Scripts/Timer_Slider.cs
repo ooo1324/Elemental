@@ -25,6 +25,8 @@ public class Timer_Slider : MonoBehaviour
         {
             cooltime += Time.deltaTime;
 
+            Management.Instance.level = 1 + (int)((float)cooltime / 60.0);
+
             //쿨타임 이미지
             disable.fillAmount = cooltime / time_max_sec;
 
