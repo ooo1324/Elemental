@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Warm
   - Mole
+  - LeftSenser
+  - RightSenser
+  - LeftFish
+  - RightFish
   layers:
   - Default
   - TransparentFX
@@ -42,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Fish
+    uniqueID: 1599023907
     locked: 0

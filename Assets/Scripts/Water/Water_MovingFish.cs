@@ -22,7 +22,7 @@ public class Water_MovingFish : MonoBehaviour
     float minXpos = -15.5f;
     float maxXpos = 4.5f;
 
-    float destroyXpos = 2.0f; // 더해서 지우기
+ 
 
     SpriteRenderer spRenderer;
 
@@ -41,8 +41,6 @@ public class Water_MovingFish : MonoBehaviour
     void Start()
     {
         spRenderer = GetComponent<SpriteRenderer>();
-
-        Debug.Log("소팅레이어 정렬하기" + spRenderer.sortingOrder);
 
         fish_Spawn = GameObject.Find("Water_FishSpawn").GetComponent<Water_FishSpawn>();
 
@@ -72,9 +70,9 @@ public class Water_MovingFish : MonoBehaviour
         if (speed == 5)
             return;
         else
-            speed = Random.Range(1, 4);
+            speed = Random.Range(2, 4);
 
-
+        Debug.Log(speed);
     }
 
     // Update is called once per frame
@@ -102,15 +100,15 @@ public class Water_MovingFish : MonoBehaviour
         Destroy(gameObject);
         Explode();
         isMouseDown = true;
-        Debug.Log("마우스다운");
+   
 
-        fish_Spawn.UpdateScore(pointValue);
+       // fish_Spawn.UpdateScore(pointValue);
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Trigger");
+    
 
 
         if ((this.gameObject.tag == "LeftFish" && collision.tag == "RightSenser") ||

@@ -18,7 +18,7 @@ public class Water_FishSpawn : MonoBehaviour
 
     private int sorting_Value;
     private int score; 
-    public TextMeshProUGUI scoreText;
+   // public TextMeshProUGUI scoreText;
 
     [Range(0,100)]
     public int percent;
@@ -28,12 +28,12 @@ public class Water_FishSpawn : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("시작하기");
+  
         StartCoroutine(SpawnTarget());
 
         sorting_Value = 1;
 
-        UpdateScore(0);
+     //   UpdateScore(0);
         moving_Fish = GetComponent<Water_MovingFish>();
     }
 
@@ -58,7 +58,7 @@ public class Water_FishSpawn : MonoBehaviour
 
             ckaclIndex = index;
 
-            Debug.Log(index);
+          //  Debug.Log
 
             yield return new WaitForSeconds(spawnRate);
 
@@ -89,11 +89,11 @@ public class Water_FishSpawn : MonoBehaviour
         return Random.Range(-3.5f, 4.0f);
     }
 
-    public void UpdateScore(int scoreToAdd)
-    {
-        score += scoreToAdd;
-        scoreText.text = "score: " + score;
-    }
+    //public void UpdateScore(int scoreToAdd)
+    //{
+    //    score += scoreToAdd;
+    //    scoreText.text = "score: " + score;
+    //}
 
 
 }
