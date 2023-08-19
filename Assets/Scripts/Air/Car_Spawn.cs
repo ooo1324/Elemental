@@ -6,6 +6,7 @@ public class Car_Spawn : MonoBehaviour
 {
     List<int> CarList = new List<int>();
 
+    public Transform parentObj;
     public Sprite[] SP;
     public Vector2[] Spawn_direction;
 
@@ -13,9 +14,14 @@ public class Car_Spawn : MonoBehaviour
     public float Spawn_Time;
     public bool Break;
 
-    void Start()
+    private void OnEnable()
     {
         StartCoroutine(Spawn());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(Spawn());
     }
 
     IEnumerator Spawn()
@@ -29,8 +35,7 @@ public class Car_Spawn : MonoBehaviour
 
             for (int i = 0; i < Car_Num; i++)
             {
-                Car.Add(Instantiate(Prefab_Car, Vector2.zero, Quaternion.identity));
-                Car[i].transform.parent = transform;
+                Car.Add(Instantiate(Prefab_Car, parentObj));
                 Car[i].transform.localPosition = Spawn_direction[i];
                 Car[i].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = SP[Random.Range(0, SP.Length)];
                 Car[i].GetComponent<Car_Move>().Speed = Random.Range(3, 9);

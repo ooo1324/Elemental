@@ -29,13 +29,20 @@ public class Water_FishSpawn : MonoBehaviour
 
     void Start()
     {
-  
-        StartCoroutine(SpawnTarget());
-
         sorting_Value = 1;
 
      //   UpdateScore(0);
         moving_Fish = GetComponent<Water_MovingFish>();
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(SpawnTarget());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(SpawnTarget());
     }
 
     // Update is called once per frame
