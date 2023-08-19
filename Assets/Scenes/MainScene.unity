@@ -477,10 +477,10 @@ MonoBehaviour:
     value: 50
     reduce: 1
   - barImg: {fileID: 1960209147}
-    value: 50
+    value: 70
     reduce: 1
   - barImg: {fileID: 2042895087}
-    value: 50
+    value: 70
     reduce: 1
   delaySec: 0.1
 --- !u!1 &92529101

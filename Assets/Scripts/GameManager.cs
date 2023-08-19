@@ -103,11 +103,11 @@ public class GameManager : MonoBehaviour
                 break;
             case GamePanelManager.EElementalType.air:
                 gaugeManager.elementDataList[3].value += increaseValue;
-                typeScore = 2;
+                typeScore = 4;
                 break;
             case GamePanelManager.EElementalType.earth:
                 gaugeManager.elementDataList[2].value += increaseValue;
-                typeScore = 1;
+                typeScore = 3;
                 break;  
         }
 
@@ -146,7 +146,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GamePanelManager.EElementalType.air:
                 gaugeManager.elementDataList[3].value -= decreaseValue;
-                typeScore = 2;
+                typeScore = 4;
                 break;
             case GamePanelManager.EElementalType.earth:
                 gaugeManager.elementDataList[2].value -= decreaseValue;
