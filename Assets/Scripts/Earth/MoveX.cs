@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MoveX : MonoBehaviour
 {
-    private Rigidbody2D rigid;
-
     public float moveSpeed;
 
     public BoxCollider2D triggerCollider;
@@ -21,7 +19,6 @@ public class MoveX : MonoBehaviour
 
     private void Awake()
     {
-        rigid = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
         widthSize = Random.Range(-triggerCollider.size.x / 2, triggerCollider.size.x / 2);
         heightSize = Random.Range(-triggerCollider.size.y / 2, triggerCollider.size.y / 2);
