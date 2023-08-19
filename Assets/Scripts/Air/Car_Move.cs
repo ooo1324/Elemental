@@ -43,27 +43,30 @@ public class Car_Move : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (Broke == 0)
+        if (!Management.Instance.Stop)
         {
-            Sp.color = Color.red;
+            if (Broke == 0)
+            {
+                Sp.color = Color.red;
 
-            Gas.transform.localPosition = new Vector3(0, 0.9f, 0);
-            Gas.transform.localScale = new Vector3(0.5f, 0.5f, 0);
+                Gas.transform.localPosition = new Vector3(0, 0.9f, 0);
+                Gas.transform.localScale = new Vector3(0.5f, 0.5f, 0);
 
-            //gage.Value[3] -= 15;
+                //gage.Value[3] -= 15;
 
-            Broke = 1;
+                Broke = 1;
+            }
+            else
+            {
+                //gage.Value[3] += 10;
+
+                Gas.transform.localPosition = new Vector3(0, 0.7f, 0);
+                Gas.transform.localScale = new Vector3(0.25f, 0.25f, 0);
+
+                Broke = 0;
+            }
+
+            GetComponent<BoxCollider2D>().enabled = false;
         }
-        else
-        {
-            //gage.Value[3] += 10;
-
-            Gas.transform.localPosition = new Vector3(0, 0.7f, 0);
-            Gas.transform.localScale = new Vector3(0.25f, 0.25f, 0);
-
-            Broke = 0;
-        }
-
-        GetComponent<BoxCollider2D>().enabled = false;
     }
 }

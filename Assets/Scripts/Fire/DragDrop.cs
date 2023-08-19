@@ -14,24 +14,31 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.3f);
+        if (!Management.Instance.Stop)
+            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.3f);
     }
     private void OnMouseDrag()
     {
-        if (!isDrag) 
-            isDrag = true;
+        if (!Management.Instance.Stop)
+        {
+            if (!isDrag)
+                isDrag = true;
 
-        Vector3 objPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
-        transform.position = new Vector3(objPosition.x, objPosition.y, 0);
+            Vector3 objPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+            transform.position = new Vector3(objPosition.x, objPosition.y, 0);
+        }
     }
 
     private void OnMouseUp()
     {
-        renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
-        if (isDrag)
+        if (!Management.Instance.Stop)
         {
-            FireManager.instance.CheckBomb();
-            Destroy(gameObject);
-        }      
+            renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
+            if (isDrag)
+            {
+                FireManager.instance.CheckBomb();
+                Destroy(gameObject);
+            }
+        }
     }
 }
