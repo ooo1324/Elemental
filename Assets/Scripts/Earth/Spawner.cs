@@ -65,7 +65,7 @@ public class Spawner : MonoBehaviour
                 }
             }
 
-            yield return new WaitForSeconds(delayRate);
+            yield return new WaitForSeconds(delayRate / Management.Instance.level);
         } 
     }
 }
