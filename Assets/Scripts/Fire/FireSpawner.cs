@@ -12,7 +12,17 @@ public class FireSpawner : MonoBehaviour
 
     private void Start()
     {
+        
+    }
+
+    private void OnEnable()
+    {
         StartCoroutine(FireSpawn());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(FireSpawn());
     }
 
     IEnumerator FireSpawn()
