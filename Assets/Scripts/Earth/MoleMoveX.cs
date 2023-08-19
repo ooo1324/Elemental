@@ -45,7 +45,7 @@ public class MoleMoveX : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(lookXVec * moveSpeed * Time.deltaTime);
+        transform.Translate(lookXVec * moveSpeed * Time.deltaTime * Management.Instance.level);
 
         if (lookXVec == Vector3.right)
         {

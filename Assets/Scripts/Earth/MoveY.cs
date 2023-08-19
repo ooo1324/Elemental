@@ -53,7 +53,7 @@ public class MoveY : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(lookYVec * moveSpeed * Time.deltaTime);
+        transform.Translate(lookYVec * moveSpeed * Time.deltaTime * Management.Instance.level);
 
         if (lookYVec == Vector3.left)
         {
