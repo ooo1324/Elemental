@@ -11,6 +11,7 @@ public class GaugeManager : MonoBehaviour
 
     public float delaySec;
 
+
     private void Start()
     {
         for (int i = 0; i < elementDataList.Count; i++)
@@ -27,11 +28,14 @@ public class GaugeManager : MonoBehaviour
     {
         while (true)
         {
+            //if (!Management.Instance.isStartGame) break;
             for (int i = 0; i < elementDataList.Count; i++)
             {
                 ElementData curdata = elementDataList[i];
 
-                curdata.value -= curdata.reduce / 0.1f;
+                curdata.value -= curdata.reduce * 0.1f;
+
+                Debug.Log($"{curdata.value} / {curdata.barImg.fillAmount}");
 
                 curdata.barImg.fillAmount = curdata.value / 100;
 
@@ -50,11 +54,10 @@ public class GaugeManager : MonoBehaviour
         }  
     }
 
-
 }
 
 [Serializable]
-public struct ElementData
+public class ElementData
 {
 
     public Image barImg;

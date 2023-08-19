@@ -6,6 +6,7 @@ public class Earth_DragDrop : MonoBehaviour
 {
     private bool isDrag = false;
     private SpriteRenderer renderer;
+
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -30,7 +31,6 @@ public class Earth_DragDrop : MonoBehaviour
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
         if (isDrag)
         {
-            
             Destroy(gameObject);
         }
     }

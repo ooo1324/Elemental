@@ -11,15 +11,15 @@ public class WarmTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Warm"))
-        {
-
+        {     
             //점수제어
+            GameManager.instance.PlusScore(GamePanelManager.EElementalType.earth);
             StartCoroutine(DeactiveAction(collision.gameObject));
         }
         else if (collision.gameObject.CompareTag("Mole"))
         {
             //점수 제어
-
+            GameManager.instance.MinusSocre(GamePanelManager.EElementalType.earth);
             StartCoroutine(DeactiveAction(collision.gameObject));
         }
     }

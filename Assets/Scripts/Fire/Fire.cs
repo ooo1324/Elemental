@@ -12,15 +12,14 @@ public class Fire : MonoBehaviour
     {
         if (FireManager.instance.currBombType == FireManager.EBombType.water)
         {
+            GameManager.instance.PlusScore(GamePanelManager.EElementalType.fire);
             FireManager.instance.AddScore(score);
             spawner.decreaseFireCount();
             gameObject.SetActive(false);
         }
         else if (FireManager.instance.currBombType == FireManager.EBombType.oil)
         {
-            FireManager.instance.AddScore(-score);
-            //spawner.decreaseFireCount();
-            //gameObject.SetActive(false);
+            GameManager.instance.MinusSocre(GamePanelManager.EElementalType.fire);
         }
     }
 }

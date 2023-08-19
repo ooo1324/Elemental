@@ -46,4 +46,7 @@ public class Management : ScriptableObject
     }
 
     public float level;
+
+    public bool isStartGame;
+
 }
