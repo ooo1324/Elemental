@@ -82,12 +82,12 @@ public class Water_MovingFish : MonoBehaviour
         if (isLeftSpawn)
         {
           //  Debug.Log("오른쪽으로 가기");
-            this.transform.Translate(speed * Time.deltaTime, 0, 0);
+            this.transform.Translate(speed * Time.deltaTime * Management.Instance.level, 0, 0);
         }
         else 
         {
             // Debug.Log("왼쪽으로 가기");
-            this.transform.Translate(-speed * Time.deltaTime, 0, 0);
+            this.transform.Translate(-speed * Time.deltaTime * Management.Instance.level, 0, 0);
         }
 
      

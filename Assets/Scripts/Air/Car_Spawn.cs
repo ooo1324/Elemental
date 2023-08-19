@@ -59,7 +59,7 @@ public class Car_Spawn : MonoBehaviour
             Break = false;
             CarList.RemoveRange(0, CarList.Count);
 
-            yield return new WaitForSeconds(Spawn_Time * Management.Instance.level);
+            yield return new WaitForSeconds(Spawn_Time / Management.Instance.level);
         }
     }
 

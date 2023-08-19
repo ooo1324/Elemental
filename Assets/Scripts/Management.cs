@@ -45,5 +45,5 @@ public class Management : ScriptableObject
         }
     }
 
-    public int level;
+    public float level;
 }

@@ -68,7 +68,7 @@ public class Water_FishSpawn : MonoBehaviour
 
           //  Debug.Log
 
-            yield return new WaitForSeconds(spawnRate);
+            yield return new WaitForSeconds(spawnRate / Management.Instance.level);
 
             // Debug.Log(spawnRate);
 

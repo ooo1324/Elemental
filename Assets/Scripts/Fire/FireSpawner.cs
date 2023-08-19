@@ -48,7 +48,7 @@ public class FireSpawner : MonoBehaviour
             }
 
           //  Debug.Log($"fire »ý¼º : {currCount}");
-            yield return new WaitForSeconds(spawnSec);
+            yield return new WaitForSeconds(spawnSec / Management.Instance.level);
         }
         // fireSpawn
     
