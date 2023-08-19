@@ -3878,7 +3878,7 @@ Camera:
     x: 0
     y: 0
     width: 16
-    height: 9
+    height: 10
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -8417,6 +8417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d25d3c0d550e443b53ab1679903c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  box: []
   currType: 0
   fireGamePanel: {fileID: 747407658}
   waterGamePanel: {fileID: 1985591251}
