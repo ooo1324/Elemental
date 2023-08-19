@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GamePanelManager : MonoBehaviour
 {
+    public BoxCollider2D[] box;
+
     public enum EElementalType
     {
         none,
@@ -36,6 +38,9 @@ public class GamePanelManager : MonoBehaviour
 
     public void ChangePanel(EElementalType type)
     {
+        for (int i = 0; i < 4; i++)
+            box[i].enabled = false;
+
         if (currType == type) return;
         currType = type;
         fireGamePanel.SetActive(false);
