@@ -22,7 +22,11 @@ public class FireManager : MonoBehaviour
 
     public BombSpawner bombSpawner;
 
+    [HideInInspector]
     public GameObject currBomb;
+
+    [Range(0, 1)]
+    public float waterSpawnRatio;
 
     [HideInInspector]
     private int fireScore = 0;
@@ -49,7 +53,10 @@ public class FireManager : MonoBehaviour
     {
         if (currBomb != null)
             Destroy(currBomb);
-        int ranIdx = Random.Range(0, 2);
+        float ranRatio = Random.Range(0f, 1.0f);
+
+        int ranIdx = ranRatio <= waterSpawnRatio ? 0 : 1;
+
         currBombType = (EBombType)ranIdx;
         bombSpawner.BombSpawn(ranIdx);
     }

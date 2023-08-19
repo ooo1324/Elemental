@@ -887,6 +887,7 @@ MonoBehaviour:
   scoreText: {fileID: 1127377307}
   bombSpawner: {fileID: 1687281761}
   currBomb: {fileID: 0}
+  waterSpawnRatio: 0
 --- !u!1 &438696841
 GameObject:
   m_ObjectHideFlags: 0
