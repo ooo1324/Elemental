@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7350738679611223912}
   - component: {fileID: 7350738679611223915}
   - component: {fileID: 7350738681111855324}
+  - component: {fileID: 593659675}
   m_Layer: 0
   m_Name: GoodWarm_Y
   m_TagString: Warm
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!114 &7350738679611223912
 MonoBehaviour:
@@ -140,3 +141,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cb59a76b71d5347aa5aa68b1ef9f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &593659675
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350738679611223925}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5a3f814cca1b8341a3342d586c90a99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

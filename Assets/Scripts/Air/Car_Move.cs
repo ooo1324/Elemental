@@ -9,11 +9,11 @@ public class Car_Move : MonoBehaviour
 
     public SpriteRenderer Sp;
     public GameObject Gas;
-    public Gage gage;
+    //public Gage gage;
 
     void Start()
     {
-        gage = GameObject.FindObjectOfType<Gage>();
+       // gage = GameObject.FindObjectOfType<Gage>();
         Gas.SetActive(true);
 
         if (Broke == 0)
@@ -35,7 +35,7 @@ public class Car_Move : MonoBehaviour
         else
         {
             if(Broke == 1)
-                gage.Value[3] -= 10;
+               //gage.Value[3] -= 10;
 
             Destroy(gameObject);
         }
@@ -50,13 +50,13 @@ public class Car_Move : MonoBehaviour
             Gas.transform.localPosition = new Vector3(0, 0.9f, 0);
             Gas.transform.localScale = new Vector3(0.5f, 0.5f, 0);
 
-            gage.Value[3] -= 15;
+            //gage.Value[3] -= 15;
 
             Broke = 1;
         }
         else
         {
-            gage.Value[3] += 10;
+            //gage.Value[3] += 10;
 
             Gas.transform.localPosition = new Vector3(0, 0.7f, 0);
             Gas.transform.localScale = new Vector3(0.25f, 0.25f, 0);
