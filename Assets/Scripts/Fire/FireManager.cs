@@ -18,8 +18,6 @@ public class FireManager : MonoBehaviour
     [HideInInspector]
     public EBombType currBombType;
 
-    public TextMeshProUGUI scoreText;
-
     public BombSpawner bombSpawner;
 
     [HideInInspector]
@@ -38,14 +36,14 @@ public class FireManager : MonoBehaviour
 
     private void Start()
     {
-        scoreText.text = $"Score: {fireScore}";
+       // scoreText.text = $"Score: {fireScore}";
         SpawnBomb();
     }
 
     public void AddScore(int score)
     {
         fireScore += score;
-        scoreText.text = $"Score: {fireScore}";
+       // scoreText.text = $"Score: {fireScore}";
         SpawnBomb();
     }
 
