@@ -97,10 +97,12 @@ public class Water_MovingFish : MonoBehaviour
 
     private void OnMouseDown() // 마우스 클릭
     {
-        Destroy(gameObject);
-        Explode();
-        isMouseDown = true;
-   
+        if (!Management.Instance.Stop)
+        {
+            Destroy(gameObject);
+            Explode();
+            isMouseDown = true;
+        }
 
        // fish_Spawn.UpdateScore(pointValue);
 

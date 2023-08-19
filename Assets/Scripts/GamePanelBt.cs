@@ -7,6 +7,7 @@ public class GamePanelBt : MonoBehaviour
     public GamePanelManager.EElementalType panelType;
     private void OnMouseDown()
     {
-        GamePanelManager.instance.ChangePanel(panelType);
+        if (!Management.Instance.Stop)
+            GamePanelManager.instance.ChangePanel(panelType);
     }
 }

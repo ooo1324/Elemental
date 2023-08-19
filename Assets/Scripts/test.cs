@@ -19,5 +19,16 @@ public class test : MonoBehaviour
             Management.Instance.level = 1.5f;
         if (Input.GetKeyDown(KeyCode.D))
             Management.Instance.level = 2;
+
+        if (Input.GetKeyDown(KeyCode.Q))    // ∏ÿ√„
+        {
+            Management.Instance.Stop = true;
+            Time.timeScale = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.E))    // Ω√¿€
+        {
+            Management.Instance.Stop = false;
+            Time.timeScale = 1;
+        }
     }
 }
