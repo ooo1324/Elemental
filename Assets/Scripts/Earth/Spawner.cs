@@ -19,9 +19,13 @@ public class Spawner : MonoBehaviour
 
     public float delayRate;
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(spawn());
+    }
+    private void OnDisable()
+    {
+        StopCoroutine(spawn());
     }
 
     IEnumerator spawn()
