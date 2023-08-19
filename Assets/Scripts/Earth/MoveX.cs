@@ -19,7 +19,13 @@ public class MoveX : MonoBehaviour
 
     private void Awake()
     {
+        triggerCollider = GameObject.Find("GridTrigger").GetComponent<BoxCollider2D>();
         renderer = GetComponent<SpriteRenderer>();
+    
+    }
+
+    private void Start()
+    {
         widthSize = Random.Range(-triggerCollider.size.x / 2, triggerCollider.size.x / 2);
         heightSize = Random.Range(-triggerCollider.size.y / 2, triggerCollider.size.y / 2);
 
@@ -31,7 +37,7 @@ public class MoveX : MonoBehaviour
         }
         else
         {
-            lookXVec = Vector3.right;        
+            lookXVec = Vector3.right;
         }
 
         if (transform.localPosition.y > 0)

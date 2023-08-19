@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8201218423848756827}
   - component: {fileID: 8201218423848756826}
   - component: {fileID: 8201218423848756825}
+  - component: {fileID: 8201218423243308742}
   m_Layer: 0
   m_Name: GoodWarm_X
   m_TagString: Warm
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8201218423848756831}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.76, y: -0.48, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -127,3 +128,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2384653, y: 0.2830472}
   m_EdgeRadius: 0
+--- !u!114 &8201218423243308742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201218423848756831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cb59a76b71d5347aa5aa68b1ef9f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -2,28 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveY : MonoBehaviour
+public class MoleMoveX : MonoBehaviour
 {
     public float moveSpeed;
 
     public BoxCollider2D triggerCollider;
 
-    public float rotateAngle;
-
     private bool isRotate;
 
     private float widthSize;
     private float heightSize;
-
     private SpriteRenderer renderer;
-    private Vector3 lookYVec;
+    private Vector3 lookXVec;
+    private Vector3 rotateVec;
 
-    // Start is called before the first frame update
-    void Awake()
+    private void Awake()
     {
         triggerCollider = GameObject.Find("GridTrigger").GetComponent<BoxCollider2D>();
         renderer = GetComponent<SpriteRenderer>();
-   
+
     }
 
     private void Start()
@@ -31,51 +28,47 @@ public class MoveY : MonoBehaviour
         widthSize = Random.Range(-triggerCollider.size.x / 2, triggerCollider.size.x / 2);
         heightSize = Random.Range(-triggerCollider.size.y / 2, triggerCollider.size.y / 2);
 
-
-        if (transform.localPosition.y > 0)
-        {
-            lookYVec = Vector3.right;
-        }
-        else
-        {
-            lookYVec = Vector3.left;
-            renderer.flipX = true;
-        }
+        lookXVec = transform.localPosition.x > 0 ? Vector3.left : Vector3.right;
 
         if (transform.localPosition.x > 0)
         {
-            rotateAngle *= -1;
-
-            renderer.flipY = true;
+            lookXVec = Vector3.left;
+            renderer.flipX = true;
+        }          
+        else
+        {
+            lookXVec = Vector3.right;
         }
+
+        rotateVec = transform.localPosition.y > 0 ? Vector3.down : Vector3.up;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        transform.Translate(lookYVec * moveSpeed * Time.deltaTime);
+        transform.Translate(lookXVec * moveSpeed * Time.deltaTime);
 
-        if (lookYVec == Vector3.left)
+        if (lookXVec == Vector3.right)
         {
-            if (transform.localPosition.y >= 0 + heightSize)
+            if (transform.localPosition.x >= 0 + widthSize)
             {
                 if (!isRotate)
                 {
-                    transform.Rotate(0, 0, transform.localRotation.z + -rotateAngle);
+                    lookXVec = rotateVec;
                     isRotate = true;
                 }
             }
         }
-        else if (lookYVec == Vector3.right)
+        else if (lookXVec == Vector3.left)
         {
-            if (transform.localPosition.y <= 0 + heightSize)
+            if (transform.localPosition.x <= 0 + widthSize)
             {
                 if (!isRotate)
                 {
-                    transform.Rotate(0, 0, transform.localRotation.z + rotateAngle);
+                    lookXVec = rotateVec;
                     isRotate = true;
                 }
             }
         }
+
     }
 }

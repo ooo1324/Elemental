@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveY : MonoBehaviour
+public class MoleMoveY: MonoBehaviour
 {
     public float moveSpeed;
 
@@ -12,11 +12,11 @@ public class MoveY : MonoBehaviour
 
     private bool isRotate;
 
-    private float widthSize;
     private float heightSize;
 
     private SpriteRenderer renderer;
     private Vector3 lookYVec;
+    private Vector3 rotateVec;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,26 +28,11 @@ public class MoveY : MonoBehaviour
 
     private void Start()
     {
-        widthSize = Random.Range(-triggerCollider.size.x / 2, triggerCollider.size.x / 2);
         heightSize = Random.Range(-triggerCollider.size.y / 2, triggerCollider.size.y / 2);
 
+        lookYVec = transform.localPosition.y > 0 ? Vector3.down : Vector3.up;
 
-        if (transform.localPosition.y > 0)
-        {
-            lookYVec = Vector3.right;
-        }
-        else
-        {
-            lookYVec = Vector3.left;
-            renderer.flipX = true;
-        }
-
-        if (transform.localPosition.x > 0)
-        {
-            rotateAngle *= -1;
-
-            renderer.flipY = true;
-        }
+        rotateVec = transform.localPosition.x > 0 ? Vector3.left : Vector3.right;
     }
 
     // Update is called once per frame
@@ -55,24 +40,28 @@ public class MoveY : MonoBehaviour
     {
         transform.Translate(lookYVec * moveSpeed * Time.deltaTime);
 
-        if (lookYVec == Vector3.left)
+        if (lookYVec == Vector3.up)
         {
             if (transform.localPosition.y >= 0 + heightSize)
             {
                 if (!isRotate)
                 {
-                    transform.Rotate(0, 0, transform.localRotation.z + -rotateAngle);
+                    lookYVec = rotateVec;
+                    if (rotateVec == Vector3.left)
+                        renderer.flipX = true;
                     isRotate = true;
                 }
             }
         }
-        else if (lookYVec == Vector3.right)
+        else if (lookYVec == Vector3.down)
         {
             if (transform.localPosition.y <= 0 + heightSize)
             {
                 if (!isRotate)
                 {
-                    transform.Rotate(0, 0, transform.localRotation.z + rotateAngle);
+                    lookYVec = rotateVec;
+                    if (rotateVec == Vector3.left)
+                        renderer.flipX = true;
                     isRotate = true;
                 }
             }
