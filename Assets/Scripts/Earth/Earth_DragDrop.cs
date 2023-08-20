@@ -6,14 +6,18 @@ public class Earth_DragDrop : MonoBehaviour
 {
     private bool isDrag = false;
     private SpriteRenderer renderer;
+    private Animator amim;
 
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
+        amim = GetComponent<Animator>();
     }
 
     private void OnMouseDown()
     {
+        if (gameObject.CompareTag("Mole"))
+            amim.SetTrigger("doDig");
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.3f);
     }
 
@@ -24,6 +28,8 @@ public class Earth_DragDrop : MonoBehaviour
 
         Vector3 objPosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         transform.position = new Vector3(objPosition.x, objPosition.y, 0);
+
+        
     }
 
     private void OnMouseUp()
@@ -31,7 +37,16 @@ public class Earth_DragDrop : MonoBehaviour
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
         if (isDrag)
         {
-            Destroy(gameObject);
+            if (gameObject.CompareTag("Mole"))
+                StartCoroutine(DestroyAction());
+            else
+                Destroy(gameObject);
         }
+    }
+
+    IEnumerator DestroyAction()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 }
