@@ -117,9 +117,6 @@ public class Water_MovingFish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-    
-
-
         if ((this.gameObject.tag == "LeftFish" && collision.tag == "RightSenser") ||
             (gameObject.tag == "RightFish" && collision.tag == "LeftSenser"))
         {
