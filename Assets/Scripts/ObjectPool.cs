@@ -8,6 +8,7 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject prefab;
 
+    public Transform parent;
 
     private void Awake()
     {
@@ -28,7 +29,7 @@ public class ObjectPool : MonoBehaviour
 
         if (select == null)
         {
-            select = Instantiate(prefab);
+            select = Instantiate(prefab, parent);
             objectList.Add(select);
         }
 
@@ -37,6 +38,8 @@ public class ObjectPool : MonoBehaviour
 
     public void AllPoolItemDeactive()
     {
+        if (objectList == null) return;
+   
         for (int i = 0; i < objectList.Count; i++)
         {
             if (!objectList[i].activeSelf)
