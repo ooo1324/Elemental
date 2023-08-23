@@ -46,7 +46,17 @@ public class MoveY : MonoBehaviour
         {
             rotateAngle *= -1;
 
-            renderer.flipY = true;
+            if (lookYVec == Vector3.right)
+            {
+                renderer.flipY = true;
+            }
+        }
+        else
+        {
+            if (lookYVec == Vector3.left)
+            {
+                renderer.flipY = true;
+            }
         }
     }
 

@@ -73,7 +73,7 @@ public class Water_MovingFish : MonoBehaviour
         else
             speed = Random.Range(2, 4);
 
-        Debug.Log(speed);
+        // Debug.Log(speed);
     }
 
     // Update is called once per frame
