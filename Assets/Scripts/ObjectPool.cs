@@ -6,9 +6,13 @@ public class ObjectPool : MonoBehaviour
 {
     private List<GameObject> objectList;
 
+    [HideInInspector]
     public GameObject prefab;
 
-    public Transform parent;
+    public ObjectPool()
+    {
+        
+    }
 
     private void Awake()
     {
@@ -24,12 +28,13 @@ public class ObjectPool : MonoBehaviour
             {
                 objectList[i].SetActive(true);
                 select = objectList[i];
+                break;
             }
         }
 
         if (select == null)
         {
-            select = Instantiate(prefab, parent);
+            select = Instantiate(prefab, gameObject.transform);
             objectList.Add(select);
         }
 
