@@ -10,6 +10,9 @@ public class CarSpawner : MonoBehaviour
 
     public CarObjPoolManager poolManager;
 
+    [SerializeField]
+    public string layerName;
+
     private void Awake()
     {
        
@@ -29,14 +32,18 @@ public class CarSpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(poolManager.spawnRate);
+            yield return new WaitForSeconds(Random.Range(poolManager.spawnRate - 0.3f, poolManager.spawnRate));
             GameObject carObj =  poolManager.carObjPool.GetObject();
             carObj.transform.position = gameObject.transform.position;
             carObj.transform.localEulerAngles = new Vector3(0, 0, rotateAngle);
+            carObj.layer = LayerMask.NameToLayer(layerName);
             Car car = carObj.GetComponent<Car>();
             car.isExhaust = Random.Range(0f, 1f) <= poolManager.carExhaustRatio;
             car.moveSpeed = Random.Range(poolManager.speedMin, poolManager.speedMax);
-            car.carRenderer.sprite = poolManager.carSprites[Random.Range(0, poolManager.carSprites.Length)];         
+            car.carRenderer.sprite = poolManager.carSprites[Random.Range(0, poolManager.carSprites.Length)];
+            carObj.SetActive(true);
+            //yield return new WaitForSeconds(Random.Range(poolManager.spawnRate - 1, poolManager.spawnRate));
+          
         }
         // 만약 차가 정체되어 쌓여있는 차가 있다면 기다렸다가 ~ 생성
     }

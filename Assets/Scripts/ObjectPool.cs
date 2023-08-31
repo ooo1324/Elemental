@@ -26,7 +26,6 @@ public class ObjectPool : MonoBehaviour
         {
             if (!objectList[i].activeSelf)
             {
-                objectList[i].SetActive(true);
                 select = objectList[i];
                 break;
             }

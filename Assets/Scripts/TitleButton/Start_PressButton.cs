@@ -30,14 +30,11 @@ public class Start_PressButton : MonoBehaviour, IPointerDownHandler, IPointerUpH
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("Click");
         img_Renderer.sprite = sprite01; //눌린이미지 
-
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("Exit");
         img_Renderer.sprite = sprite02; // 올라온이미지 
 
         gameObj.SetActive(true);

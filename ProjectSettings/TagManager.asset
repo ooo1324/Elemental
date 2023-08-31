@@ -12,6 +12,7 @@ TagManager:
   - RightFish
   - FadeIn
   - Car
+  - CarBridge
   layers:
   - Default
   - TransparentFX
@@ -20,9 +21,9 @@ TagManager:
   - Water
   - UI
   - CreditUI
-  - Car
-  - 
-  - 
+  - Car_Road
+  - Car_Bridge
+  - Bridge
   - 
   - 
   - 

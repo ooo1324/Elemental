@@ -674,6 +674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateAngle: 0
   poolManager: {fileID: 1917959825}
+  layerName: Car_Road
 --- !u!1 &104359474
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130449436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -5.69, z: 0}
+  m_LocalPosition: {x: 0, y: -7.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1124,6 +1125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateAngle: 180
   poolManager: {fileID: 1917959825}
+  layerName: Car_Road
 --- !u!1 &153530382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1665,7 +1667,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &252407101
 Transform:
   m_ObjectHideFlags: 0
@@ -1695,6 +1697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateAngle: -90
   poolManager: {fileID: 1917959825}
+  layerName: Car_Bridge
 --- !u!1 &254223529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,7 +2067,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &387978701
 Transform:
   m_ObjectHideFlags: 0
@@ -2094,6 +2097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateAngle: -90
   poolManager: {fileID: 1917959825}
+  layerName: Car_Bridge
 --- !u!1 &420226243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2210,13 +2214,14 @@ GameObject:
   m_Component:
   - component: {fileID: 429780880}
   - component: {fileID: 429780881}
-  m_Layer: 0
+  - component: {fileID: 429780882}
+  m_Layer: 9
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: CarBridge
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &429780880
 Transform:
   m_ObjectHideFlags: 0
@@ -2284,6 +2289,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &429780882
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429780879}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.6233654, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 43.75, y: 31.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 13.828369, y: 31.25}
+  m_EdgeRadius: 0
 --- !u!1 &432978931
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +3325,6 @@ Transform:
   - {fileID: 1273666410}
   - {fileID: 115813423}
   - {fileID: 858641840}
-  - {fileID: 1778784700}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3908,6 +3938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateAngle: 0
   poolManager: {fileID: 1917959825}
+  layerName: Car_Road
 --- !u!1 &783543172
 GameObject:
   m_ObjectHideFlags: 0
@@ -4354,6 +4385,7 @@ Transform:
   - {fileID: 219189332}
   - {fileID: 1334698006}
   - {fileID: 269641432}
+  - {fileID: 1778784700}
   m_Father: {fileID: 659565496}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6230,7 +6262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205375016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.56, y: -0.91, z: 0}
+  m_LocalPosition: {x: 9.51, y: -0.91, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8802,7 +8834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1613188829
 Transform:
   m_ObjectHideFlags: 0
@@ -9031,6 +9063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateAngle: 180
   poolManager: {fileID: 1917959825}
+  layerName: Car_Road
 --- !u!1 &1644095344
 GameObject:
   m_ObjectHideFlags: 0
@@ -9655,7 +9688,7 @@ Transform:
   m_LocalScale: {x: 14.188749, y: 9.923659, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 659565496}
+  m_Father: {fileID: 858641840}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &1778784701
@@ -11444,7 +11477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042173568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.81, y: 3.27, z: 0}
+  m_LocalPosition: {x: -10.04, y: 3.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
