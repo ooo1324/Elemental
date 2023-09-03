@@ -13,13 +13,13 @@ public class WarmTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Warm"))
         {     
             //점수제어
-            GameManager.instance.PlusScore(GamePanelManager.EElementalType.earth);
+            GameManager.instance.PlusScore(GamePanelManager.EElementalType.earth, gameObject.transform.position);
             StartCoroutine(DeactiveAction(collision.gameObject));
         }
         else if (collision.gameObject.CompareTag("Mole"))
         {
             //점수 제어
-            GameManager.instance.MinusSocre(GamePanelManager.EElementalType.earth);
+            GameManager.instance.MinusSocre(GamePanelManager.EElementalType.earth, gameObject.transform.position);
             StartCoroutine(DeactiveAction(collision.gameObject));
         }
     }

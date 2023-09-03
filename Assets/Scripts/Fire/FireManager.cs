@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class FireManager : MonoBehaviour
 {
@@ -29,9 +30,14 @@ public class FireManager : MonoBehaviour
     [HideInInspector]
     private int fireScore = 0;
 
+    public ObjectPool pool;
+
+    public GameObject particleObj;
+
     private void Awake()
     {
         instance = this;
+        pool.prefab = particleObj;
     }
 
     private void Start()
@@ -43,14 +49,23 @@ public class FireManager : MonoBehaviour
     public void AddScore(int score)
     {
         fireScore += score;
-       // scoreText.text = $"Score: {fireScore}";
+        // scoreText.text = $"Score: {fireScore}"; 
+
         SpawnBomb();
     }
 
     public void SpawnBomb()
     {
+        StopCoroutine(spawnBombAction());
+        StartCoroutine(spawnBombAction());
+    }
+
+    IEnumerator spawnBombAction()
+    {
         if (currBomb != null)
             Destroy(currBomb);
+
+        yield return new WaitForSeconds(0.2f);
         float ranRatio = Random.Range(0f, 1.0f);
 
         int ranIdx = ranRatio <= waterSpawnRatio ? 0 : 1;

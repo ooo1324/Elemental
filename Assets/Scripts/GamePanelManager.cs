@@ -8,11 +8,11 @@ public class GamePanelManager : MonoBehaviour
 
     public enum EElementalType
     {
-        none,
-        fire,
+        none = -1,
         water,
-        air,
-        earth
+        fire,
+        earth,
+        air
     }
 
     public static GamePanelManager instance;
@@ -35,6 +35,7 @@ public class GamePanelManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        currType = EElementalType.none;
     }
 
     public void ActiveCollider()

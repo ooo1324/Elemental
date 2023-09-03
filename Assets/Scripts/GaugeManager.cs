@@ -11,6 +11,8 @@ public class GaugeManager : MonoBehaviour
 
     public float delaySec;
 
+    public GameObject warning;
+
 
     private void Start()
     {
@@ -28,9 +30,10 @@ public class GaugeManager : MonoBehaviour
     {
         while (true)
         {
+            bool isCheckWarning = false;
             //if (!Management.Instance.isStartGame) break;
             for (int i = 0; i < elementDataList.Count; i++)
-            {
+            { 
                 ElementData curdata = elementDataList[i];
 
                 curdata.value -= curdata.reduce * 0.1f;
@@ -40,7 +43,15 @@ public class GaugeManager : MonoBehaviour
                 if (curdata.barImg.fillAmount <= 0)
                 {
                     curdata.value = 0;
+                    if (warning.activeSelf)
+                        warning.SetActive(false);
+
+                    StopCoroutine(GaugeManage());
                     GameManager.instance.GameOver();
+                }
+                else if (curdata.barImg.fillAmount <= 0.2)
+                {
+                    isCheckWarning = true;
                 }
                 else if (curdata.barImg.fillAmount >= 1)
                 {
@@ -48,6 +59,16 @@ public class GaugeManager : MonoBehaviour
                 }
             }
 
+            if (isCheckWarning)
+            {
+                if (!warning.activeSelf)
+                    warning.SetActive(true);         
+            }
+            else
+            {
+                if (warning.activeSelf)
+                    warning.SetActive(false);
+            }
             yield return new WaitForSeconds(delaySec);
         }  
     }

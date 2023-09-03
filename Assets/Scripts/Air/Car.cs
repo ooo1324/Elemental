@@ -91,13 +91,13 @@ public class Car : MonoBehaviour
             if (isExhaust)
             {
                 //매연 자동차인 경우
-                GameManager.instance.PlusScore(GamePanelManager.EElementalType.air);
+                GameManager.instance.PlusScore(GamePanelManager.EElementalType.air, gameObject.transform.position);
                 gameObject.SetActive(false);
             }
             else
             {
                 //매연 자동차가 아닌 경우
-                GameManager.instance.MinusSocre(GamePanelManager.EElementalType.air);
+                GameManager.instance.MinusSocre(GamePanelManager.EElementalType.air, gameObject.transform.position);
                 gameObject.SetActive(false);
             }
         }

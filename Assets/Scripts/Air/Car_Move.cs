@@ -35,7 +35,7 @@ public class Car_Move : MonoBehaviour
         else
         {
             if(Broke == 1)
-                GameManager.instance.MinusSocre(GamePanelManager.EElementalType.air);
+             //   GameManager.instance.MinusSocre(GamePanelManager.EElementalType.air);
 
             Destroy(gameObject);
         }
@@ -52,13 +52,13 @@ public class Car_Move : MonoBehaviour
                 Gas.transform.localPosition = new Vector3(0, 0.9f, 0);
                 Gas.transform.localScale = new Vector3(0.5f, 0.5f, 0);
 
-                GameManager.instance.MinusSocre(GamePanelManager.EElementalType.air);
+               // GameManager.instance.MinusSocre(GamePanelManager.EElementalType.air);
 
                 Broke = 1;
             }
             else
             {
-                GameManager.instance.PlusScore(GamePanelManager.EElementalType.air);
+                //GameManager.instance.PlusScore(GamePanelManager.EElementalType.air);
 
                 Destroy(gameObject);
             }

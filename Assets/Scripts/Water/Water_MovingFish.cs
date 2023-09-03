@@ -104,11 +104,11 @@ public class Water_MovingFish : MonoBehaviour
 
         if (isGood)
         {
-            GameManager.instance.MinusSocre(GamePanelManager.EElementalType.water);
+            GameManager.instance.MinusSocre(GamePanelManager.EElementalType.water, gameObject.transform.position);
         }
         else
         {
-            GameManager.instance.PlusScore(GamePanelManager.EElementalType.water);
+            GameManager.instance.PlusScore(GamePanelManager.EElementalType.water, gameObject.transform.position);
         }
 
         //fish_Spawn.UpdateScore(pointValue);

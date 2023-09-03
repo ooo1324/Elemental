@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,9 +10,12 @@ public class GameManager : MonoBehaviour
 
     public GaugeManager gaugeManager;
 
+    [HideInInspector]
+    public UIManager uiManager;
+
     [Header("GameOver/Clear")]
     public GameObject gamePanelObj;
-    public TextMeshProUGUI scoreText;
+    public Text scoreText;
 
     public GameObject gameOverText;
     public GameObject clearText;
@@ -37,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         totalScore = 0;
+        uiManager = FindObjectOfType<UIManager>();
     }
 
     // Start is called before the first frame update
@@ -87,7 +91,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void PlusScore(GamePanelManager.EElementalType type)
+    public void PlusScore(GamePanelManager.EElementalType type, Vector3 scorePos)
     {
         int typeScore = 0;
 
@@ -111,10 +115,11 @@ public class GameManager : MonoBehaviour
                 break;  
         }
 
-        totalScore += Management.Instance.level * plusScore * typeScore;
-
-       
+        float addScore = Management.Instance.level * plusScore * typeScore;
+        totalScore += addScore;
+        uiManager.FloatingText(type, scorePos, (int)addScore);
     }
+
     public void PauseGame()
     {
         if (!Management.Instance.Stop)
@@ -130,7 +135,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void MinusSocre(GamePanelManager.EElementalType type)
+    public void MinusSocre(GamePanelManager.EElementalType type, Vector3 scorePos)
     {
         int typeScore = 0;
 
@@ -154,6 +159,8 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-        totalScore -= Management.Instance.level * minusSocre * typeScore;
+        float minusScore = Management.Instance.level * minusSocre * typeScore;
+        totalScore -= minusScore;
+        uiManager.FloatingText(type, scorePos, -(int)minusScore);
     }
 }
