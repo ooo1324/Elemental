@@ -11,6 +11,7 @@ public class Fire : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (Management.Instance.Stop) return;
         if (FireManager.instance.currBombType == FireManager.EBombType.water)
         {
             GameObject obj = FireManager.instance.pool.GetObject();

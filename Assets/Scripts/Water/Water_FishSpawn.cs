@@ -15,24 +15,22 @@ public class Water_FishSpawn : MonoBehaviour
 
     private float minValueX = -13.0f;
 
-     Water_MovingFish moving_Fish;
+    public ObjectPool pool;
 
     private int sorting_Value;
+
+    [SerializeField]
+    private GameObject explosionFx;
+
     private int score; 
-   // public TextMeshProUGUI scoreText;
 
     [Range(0,100)]
     public int percent;
-    // int level = 2; // 예를 들어서 2레벨이리고ㅓ 치고 
-
-    public int ckaclIndex;
 
     void Start()
     {
         sorting_Value = 1;
-
-     //   UpdateScore(0);
-        moving_Fish = GetComponent<Water_MovingFish>();
+        pool.prefab = explosionFx;
     }
 
     private void OnEnable()
@@ -43,12 +41,6 @@ public class Water_FishSpawn : MonoBehaviour
     private void OnDisable()
     {
         StopCoroutine(SpawnTarget());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     IEnumerator SpawnTarget()
@@ -64,19 +56,12 @@ public class Water_FishSpawn : MonoBehaviour
             else
                 index = Random.Range(3, 8);
 
-            ckaclIndex = index;
-
-          //  Debug.Log
-
             yield return new WaitForSeconds(spawnRate / Management.Instance.level);
-
-            // Debug.Log(spawnRate);
-
 
             //여기에 더는 생성하지않는다는 bool 변수 넣을지도 
             GameObject obj = Instantiate(targetPrefabs[index], parentObj);
+            obj.GetComponent<Water_MovingFish>().fish_Spawn = this;
             obj.transform.position = RandomSpawnPosition();
-          // GameObject obj = Instantiate(targetPrefabs[index], RandomSpawnPosition(), targetPrefabs[index].transform.rotation);
 
             obj.GetComponent<SpriteRenderer>().sortingOrder = sorting_Value;
             sorting_Value++; // 나중에 한번 조절하는 코드 넣기 
@@ -99,12 +84,4 @@ public class Water_FishSpawn : MonoBehaviour
     {
         return Random.Range(-3.5f, 4.0f);
     }
-
-    //public void UpdateScore(int scoreToAdd)
-    //{
-    //    score += scoreToAdd;
-    //    scoreText.text = "score: " + score;
-    //}
-
-
 }

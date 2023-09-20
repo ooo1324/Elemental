@@ -30,6 +30,7 @@ public class CarObjPoolManager : MonoBehaviour
     //[SerializeField]
     //public float spawnRateMax;
 
+    [SerializeField]
     public ObjectPool carObjPool;
 
     private void Awake()

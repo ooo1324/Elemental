@@ -13,11 +13,6 @@ public class CarSpawner : MonoBehaviour
     [SerializeField]
     public string layerName;
 
-    private void Awake()
-    {
-       
-    }
-
     private void OnEnable()
     {
         StartCoroutine(SpawnCar());

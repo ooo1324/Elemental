@@ -71,8 +71,6 @@ public class GamePanelManager : MonoBehaviour
             return;
         } 
 
-       
-
         switch (type)
         {
             case EElementalType.fire:

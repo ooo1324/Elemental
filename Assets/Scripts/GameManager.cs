@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverText;
     public GameObject clearText;
 
+    [SerializeField]
+    private GameObject pausePanel;
+
     [Header("MainCheck")]
     public GameObject CheckPanelObj;
 
@@ -43,21 +46,10 @@ public class GameManager : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void GameOver()
     {
         GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
+        Management.Instance.Stop = true;
         gameOverText.SetActive(true);
         clearText.SetActive(false);
         gamePanelObj.SetActive(true);
@@ -68,6 +60,7 @@ public class GameManager : MonoBehaviour
     public void GameClear()
     {
         GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
+        Management.Instance.Stop = true;
         gameOverText.SetActive(false);
         clearText.SetActive(true);
         gamePanelObj.SetActive(true);
@@ -76,18 +69,24 @@ public class GameManager : MonoBehaviour
 
     public void CheckMainPanel()
     {
-        GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
+        //GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
+        Management.Instance.Stop = true;
+        Time.timeScale = 0;
         CheckPanelObj.SetActive(true);
     }
 
     public void ExitMainPanel()
     {
+        Management.Instance.Stop = false;
+        Time.timeScale = 1;
         GamePanelManager.instance.ActiveCollider();
         CheckPanelObj.SetActive(false);
     }
 
     public void LoadMain()
     {
+        Management.Instance.Stop = false;
+        Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
 
@@ -126,11 +125,13 @@ public class GameManager : MonoBehaviour
         {
             Management.Instance.Stop = true;
             Time.timeScale = 0;
+            pausePanel.SetActive(true);
         }
         else
         {
             Management.Instance.Stop = false;
             Time.timeScale = 1;
+            pausePanel.SetActive(false);
         }
 
     }

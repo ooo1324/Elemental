@@ -9,11 +9,6 @@ public class ObjectPool : MonoBehaviour
     [HideInInspector]
     public GameObject prefab;
 
-    public ObjectPool()
-    {
-        
-    }
-
     private void Awake()
     {
         objectList = new List<GameObject>();

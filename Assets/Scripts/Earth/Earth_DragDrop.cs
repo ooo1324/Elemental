@@ -16,13 +16,15 @@ public class Earth_DragDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (gameObject.CompareTag("Mole"))
-            amim.SetTrigger("doDig");
+        if (Management.Instance.Stop) return;
+        //if (gameObject.CompareTag("Mole"))
+        //    amim.SetTrigger("doDig");
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 0.3f);
     }
 
     private void OnMouseDrag()
     {
+        if (Management.Instance.Stop) return;
         if (!isDrag)
             isDrag = true;
 
@@ -33,6 +35,7 @@ public class Earth_DragDrop : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (Management.Instance.Stop) return;
         renderer.color = new Color(renderer.color.r, renderer.color.g, renderer.color.b, 1f);
         if (isDrag)
         {
@@ -45,7 +48,7 @@ public class Earth_DragDrop : MonoBehaviour
 
     IEnumerator DestroyAction()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
     }
 }
