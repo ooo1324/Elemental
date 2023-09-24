@@ -99,10 +99,12 @@ public class Water_MovingFish : MonoBehaviour
         if (isGood)
         {
             GameManager.instance.MinusSocre(GamePanelManager.EElementalType.water, gameObject.transform.position);
+            WaterSoundManager.instance.PlayIncorrectSound();
         }
         else
         {
             GameManager.instance.PlusScore(GamePanelManager.EElementalType.water, gameObject.transform.position);
+            WaterSoundManager.instance.PlayCorrectSound();
         }
 
         Destroy(gameObject);

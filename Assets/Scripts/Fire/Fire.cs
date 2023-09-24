@@ -26,6 +26,7 @@ public class Fire : MonoBehaviour
         else if (FireManager.instance.currBombType == FireManager.EBombType.oil)
         {
             GameManager.instance.MinusSocre(GamePanelManager.EElementalType.fire, gameObject.transform.position);
+            FireManager.instance.MinusScore();
         }
     }
 }

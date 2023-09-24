@@ -44,20 +44,20 @@ public class PressFont_FadeInOut : MonoBehaviour
         while (true)
         {
 
-            while (gameObject.GetComponent<Image>().color.a > 0f)
+            while (gameObject.GetComponent<Image>().color.a > 0.1f)
             {
                 tempColor.a -= 0.1f;
                 gameObject.GetComponent<Image>().color = tempColor;
                 yield return new WaitForSeconds(0.05f);
             }
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
             while (gameObject.GetComponent<Image>().color.a < 1f)
             {
                 tempColor.a += 0.1f;
                 gameObject.GetComponent<Image>().color = tempColor;
                 yield return new WaitForSeconds(0.05f);
             }
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.7f);
         }
     }
 

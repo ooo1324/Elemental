@@ -34,10 +34,25 @@ public class FireManager : MonoBehaviour
 
     public GameObject particleObj;
 
+    [Header("Sound")]
+    [SerializeField]
+    private AudioClip correctSound;
+
+    [SerializeField]
+    private AudioClip throwSound;
+
+    [SerializeField]
+    private AudioClip incorrectSound;
+
+
+    private AudioSource audioSource;
+
+
     private void Awake()
     {
         instance = this;
         pool.prefab = particleObj;
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -50,9 +65,19 @@ public class FireManager : MonoBehaviour
     {
         fireScore += score;
         // scoreText.text = $"Score: {fireScore}"; 
-
+        audioSource.clip = correctSound;
+        audioSource.volume = 0.6f;
+        audioSource.Play();
         SpawnBomb();
     }
+
+    public void MinusScore()
+    {
+        audioSource.clip = incorrectSound;
+        audioSource.volume = 0.8f;
+        audioSource.Play();
+    }
+
 
     public void SpawnBomb()
     {
@@ -76,15 +101,9 @@ public class FireManager : MonoBehaviour
 
     public void CheckBomb()
     {
-        if (currBombType == EBombType.water)
-        {
-
-        }
-        else if (currBombType == EBombType.oil)
-        {
-            
-        }
-
+        audioSource.clip = throwSound;
+        audioSource.volume = 1;
+        audioSource.Play();
         SpawnBomb();
     }
 }

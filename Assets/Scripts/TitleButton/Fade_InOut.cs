@@ -5,9 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Fade_InOut : MonoBehaviour
-{
+{  
     public Image fadeImg; // fade에 쓸 이미지
     public float fadeTime; //화면이 변할 시간
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 
     IEnumerator FadeIn()
     {
@@ -21,7 +26,7 @@ public class Fade_InOut : MonoBehaviour
             if (tempColor.a >= 1f)
             {
                 tempColor.a = 1f;
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("LobbyScene");        
             }
 
             yield return new WaitForSeconds(0.1f);
