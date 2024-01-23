@@ -43,11 +43,12 @@ public class GaugeManager : MonoBehaviour
                 if (curdata.barImg.fillAmount <= 0)
                 {
                     curdata.value = 0;
-                    if (warning.activeSelf)
-                        warning.SetActive(false);
+                    warning.SetActive(false);
 
-                    StopCoroutine(GaugeManage());
                     GameManager.instance.GameOver();
+
+                    StopAllCoroutines();
+                    yield return null;
                 }
                 else if (curdata.barImg.fillAmount <= 0.2)
                 {
@@ -58,7 +59,7 @@ public class GaugeManager : MonoBehaviour
                     curdata.value = 100;
                 }
             }
-
+ 
             if (isCheckWarning)
             {
                 if (!warning.activeSelf)

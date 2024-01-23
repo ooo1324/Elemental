@@ -13,7 +13,8 @@ public class FireManager : MonoBehaviour
     public enum EBombType
     {
         water,
-        oil
+        oil,
+        None
     }
 
     [HideInInspector]
@@ -47,7 +48,7 @@ public class FireManager : MonoBehaviour
 
     private AudioSource audioSource;
 
-
+    private float waitTime;
     private void Awake()
     {
         instance = this;
@@ -57,7 +58,8 @@ public class FireManager : MonoBehaviour
 
     private void Start()
     {
-       // scoreText.text = $"Score: {fireScore}";
+        // scoreText.text = $"Score: {fireScore}";
+        waitTime = 0.2f;
         SpawnBomb();
     }
 
@@ -88,9 +90,12 @@ public class FireManager : MonoBehaviour
     IEnumerator spawnBombAction()
     {
         if (currBomb != null)
+        {
+            currBombType = EBombType.None;
             Destroy(currBomb);
-
-        yield return new WaitForSeconds(0.2f);
+        }
+          
+        yield return new WaitForSeconds(waitTime / Management.Instance.level);
         float ranRatio = Random.Range(0f, 1.0f);
 
         int ranIdx = ranRatio <= waterSpawnRatio ? 0 : 1;
@@ -101,6 +106,7 @@ public class FireManager : MonoBehaviour
 
     public void CheckBomb()
     {
+        currBombType = EBombType.None;
         audioSource.clip = throwSound;
         audioSource.volume = 1;
         audioSource.Play();

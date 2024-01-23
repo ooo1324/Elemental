@@ -93,12 +93,14 @@ public class Car : MonoBehaviour
                 //매연 자동차인 경우
                 GameManager.instance.PlusScore(GamePanelManager.EElementalType.air, gameObject.transform.position);
                 gameObject.SetActive(false);
+                AirSoundManager.instance.PlayCorrectSound();
             }
             else
             {
                 //매연 자동차가 아닌 경우
                 GameManager.instance.MinusSocre(GamePanelManager.EElementalType.air, gameObject.transform.position);
                 gameObject.SetActive(false);
+                AirSoundManager.instance.PlayIncorrectSound();
             }
         }
     }

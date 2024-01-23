@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterSoundManager : MonoBehaviour
+public class EarthSoundManager : MonoBehaviour
 {
-    public static WaterSoundManager instance;
+    public static EarthSoundManager instance;
 
     [Header("Sound")]
     [SerializeField]
@@ -12,6 +12,9 @@ public class WaterSoundManager : MonoBehaviour
 
     [SerializeField]
     private AudioClip incorrectSound;
+
+    [SerializeField]
+    private AudioClip throwSound;
 
     private AudioSource audioSource;
 
@@ -24,7 +27,7 @@ public class WaterSoundManager : MonoBehaviour
     public void PlayCorrectSound()
     {
         audioSource.clip = correctSound;
-        audioSource.volume = 0.3f;
+        audioSource.volume = 0.8f;
         audioSource.Play();
     }
 
@@ -32,6 +35,13 @@ public class WaterSoundManager : MonoBehaviour
     {
         audioSource.clip = incorrectSound;
         audioSource.volume = 0.8f;
+        audioSource.Play();
+    }
+
+    public void PlayThrowSound()
+    {
+        audioSource.clip = throwSound;
+        audioSource.volume = 0.5f;
         audioSource.Play();
     }
 }

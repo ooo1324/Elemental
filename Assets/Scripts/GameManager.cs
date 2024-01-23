@@ -39,15 +39,23 @@ public class GameManager : MonoBehaviour
 
     public float increaseValue;
 
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioSource warningAudioSource;
+
     private void Awake()
     {
         instance = this;
+        Management.Instance.Stop = false;
         totalScore = 0;
         uiManager = FindObjectOfType<UIManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void GameOver()
     {
+        warningAudioSource.Stop();
         GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
         Management.Instance.Stop = true;
         gameOverText.SetActive(true);
@@ -59,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
+        warningAudioSource.Stop();
         GamePanelManager.instance.ChangePanel(GamePanelManager.EElementalType.none);
         Management.Instance.Stop = true;
         gameOverText.SetActive(false);
@@ -126,12 +135,16 @@ public class GameManager : MonoBehaviour
             Management.Instance.Stop = true;
             Time.timeScale = 0;
             pausePanel.SetActive(true);
+            audioSource.Pause();
+            warningAudioSource.Pause();
         }
         else
         {
             Management.Instance.Stop = false;
             Time.timeScale = 1;
             pausePanel.SetActive(false);
+            audioSource.Play();
+            warningAudioSource.Play();
         }
 
     }

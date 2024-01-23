@@ -44,10 +44,12 @@ public class Earth_DragDrop : MonoBehaviour
             else
                 Destroy(gameObject);
         }
+
     }
 
     IEnumerator DestroyAction()
     {
+        EarthSoundManager.instance.PlayThrowSound();
         yield return new WaitForSeconds(0.2f);
         Destroy(gameObject);
     }

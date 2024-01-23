@@ -14,12 +14,14 @@ public class WarmTrigger : MonoBehaviour
         {     
             //점수제어
             GameManager.instance.PlusScore(GamePanelManager.EElementalType.earth, gameObject.transform.position);
+            EarthSoundManager.instance.PlayCorrectSound();
             StartCoroutine(DeactiveAction(collision.gameObject));
         }
         else if (collision.gameObject.CompareTag("Mole"))
         {
             //점수 제어
             GameManager.instance.MinusSocre(GamePanelManager.EElementalType.earth, gameObject.transform.position);
+            EarthSoundManager.instance.PlayIncorrectSound();
             StartCoroutine(DeactiveAction(collision.gameObject));
         }
     }
